@@ -59,7 +59,7 @@ class CustomWallPaperUi extends StatelessWidget {
                           fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
                   ),
-                  const SizedBox(height: 11.0),
+                  const SizedBox(height: 10.0),
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -83,7 +83,7 @@ class CustomWallPaperUi extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 40.0),
+                  const SizedBox(height: 35.0),
                   Container(
                     alignment: Alignment.centerLeft,
                     child: const Text(
@@ -131,7 +131,7 @@ class CustomWallPaperUi extends StatelessWidget {
                       ],
                     ),
                   ),
-                  const SizedBox(height: 40.0),
+                  const SizedBox(height: 35.0),
                   Container(
                     alignment: Alignment.centerLeft,
                     child: const Text(
@@ -140,7 +140,7 @@ class CustomWallPaperUi extends StatelessWidget {
                           fontWeight: FontWeight.bold, fontSize: 20.0),
                     ),
                   ),
-                  const SizedBox(height: 20.0),
+                  const SizedBox(height: 10.0),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
