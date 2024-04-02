@@ -51,7 +51,7 @@ class CustomWallPaperUi extends StatelessWidget {
                     suffixIcon: const Icon(Icons.search),
                   ),
                   Container(
-                    padding: const EdgeInsets.only(left: 3.0, top: 10.0),
+                    padding: const EdgeInsets.only(top: 10.0),
                     alignment: Alignment.centerLeft,
                     child: const Text(
                       "Best of the month",

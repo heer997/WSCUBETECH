@@ -59,7 +59,7 @@ class UiHelper {
           child: Image.asset(image, fit: BoxFit.cover),
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 50.0, top: 40.0),
+          padding: const EdgeInsets.only(left: 40.0, top: 40.0),
           child: Text(
             text,
             style: const TextStyle(
