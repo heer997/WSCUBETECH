@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import "package:shared_preferences/shared_preferences.dart";
+import "package:wscube_tech/8th_April_2024_Monday/HomeScreen.dart";
 import "package:wscube_tech/8th_April_2024_Monday/Splash_Screen.dart";
 import "package:wscube_tech/8th_April_2024_Monday/custom_Widget_LoginScreen.dart";
 
@@ -25,16 +27,16 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class SharedCubeTech extends StatefulWidget {
-  const SharedCubeTech({super.key});
+class LoginScreenShared extends StatefulWidget {
+  const LoginScreenShared({super.key});
 
   @override
-  State<SharedCubeTech> createState() {
-    return SharedCubeTechState();
+  State<LoginScreenShared> createState() {
+    return LoginScreenSharedState();
   }
 }
 
-class SharedCubeTechState extends State<SharedCubeTech> {
+class LoginScreenSharedState extends State<LoginScreenShared> {
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -75,18 +77,15 @@ class SharedCubeTechState extends State<SharedCubeTech> {
                 const SizedBox(height: 40.0),
                 ElevatedButton(
                   onPressed: () {
-                    var email = emailController.text.toString();
-                    var password = passwordController.text.toString();
-
-                    if(email == null || password == null)
-                      {
-                        
-                      }
+                    saveLogin(emailController.text.toString(),
+                        passwordController.text.toString());
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.blue,
                     fixedSize: const Size(350.0, 50.0),
-                    shape: const LinearBorder(),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(12.0),
+                    ),
                   ),
                   child: const Text(
                     "Login",
@@ -102,5 +101,34 @@ class SharedCubeTechState extends State<SharedCubeTech> {
         ),
       ),
     );
+  }
+
+  saveLogin(String email, String password) async {
+    if (email == "" || password == "") {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Enter required fields"),
+        ),
+      );
+    } else {
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+      preferences.setBool("login", true);
+
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) {
+            return HomeScreenShared();
+          },
+        ),
+      );
+
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text("Boolean value is set to True"),
+          duration: Duration(seconds: 3),
+        ),
+      );
+    }
   }
 }
